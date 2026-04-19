@@ -1,5 +1,12 @@
-body {
+
+html, body, app-root {
   margin: 0;
-  font-family: Arial, sans-serif;
-  
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background: radial-gradient(circle at top left, #1a1a1a, #0d0d0d);
+}
+
+app-root {
+  display: block;
 }

@@ -20,6 +20,10 @@
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
+            "styles": [
+  "src/styles.css",
+  "node_modules/bootstrap/dist/css/bootstrap.min.css"
+],
         
             "scripts": []
           },
@@ -95,5 +99,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "af58e7d1-b517-4230-b273-24df2f70f4f1"
   }
 }

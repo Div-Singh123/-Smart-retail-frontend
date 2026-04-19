@@ -36,4 +36,10 @@ export class LoginComponent {
       }
     });
   }
+
+  showPassword = false;
+
+togglePassword() {
+  this.showPassword = !this.showPassword;
+}
 }

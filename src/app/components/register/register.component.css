@@ -1,56 +1,135 @@
+/* ================= LAYOUT ================= */
 .register-container {
-  height: 100vh;
-  background: linear-gradient(to right, #0f766e, #115e59);
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
+/* ================= CARD ================= */
 .register-card {
-  width: 400px;
-  background: #fff;
+  width: 100%;
+  max-width: 500px;
+  padding: 40px;
+
+  background: rgba(28, 28, 28, 0.85);
+  backdrop-filter: blur(10px);
+
+  border-radius: 16px;
+  border: 1px solid rgba(255, 215, 0, 0.15);
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  animation: fadeIn 0.5s ease;
+}
+/* Custom scrollbar */
+/* .register-card::-webkit-scrollbar {
+  width: 6px;
+}
+
+.register-card::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.register-card::-webkit-scrollbar-thumb {
+  background: rgba(255, 215, 0, 0.4);
   border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 6px 25px rgba(0,0,0,0.2);
 }
 
-.header {
-  background: #0f766e;
-  color: white;
-  padding: 15px;
+.register-card::-webkit-scrollbar-thumb:hover {
+  background: #ffd700;
+} */
+/* ================= HEADER ================= */
+.header h2 {
   text-align: center;
+  margin-bottom: 25px;
+  color: #ffd700;
+  font-weight: 600;
 }
 
-.form-group {
-  padding: 10px 20px;
+/* ================= FORM ================= */
+.register-card form {
   display: flex;
   flex-direction: column;
+  gap: 16px;
+}
+
+/* ================= INPUT ================= */
+.form-group label {
+  font-size: 14px;
+  color: #aaa;
 }
 
 .form-group input {
-  padding: 8px;
-  margin-top: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #0f0f0f;
+  color: #fff;
+  outline: none;
+  transition: 0.2s;
 }
 
+.form-group input:focus {
+  border-color: #ffd700;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+}
+
+/* ================= BUTTON ================= */
 .btn {
-  width: 90%;
-  margin: 15px auto;
-  display: block;
-  padding: 10px;
-  background: #0f766e;
-  color: white;
+  margin-top: 10px;
+  width: 100%;
+  padding: 14px;
+
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
+
+  background: #ffd700;
+  color: #000;
+  font-weight: 600;
+
   cursor: pointer;
+  transition: 0.3s ease;
 }
 
 .btn:hover {
-  background: #115e59;
+  background: #ffcc00;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
 }
 
+/* ================= LINK ================= */
 .login-link {
   text-align: center;
-  padding-bottom: 15px;
+  font-size: 13px;
+  color: #aaa;
+}
+
+.login-link a {
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
