@@ -1,11 +1,74 @@
-
-
-
-
 <div class="register-container">
   <div class="register-card">
 
-    <div class="header">
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+      <div class="shapes">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <h2 class="logo">SMART RETAIL</h2>
+
+      <div class="left-content">
+        <h3>Manage smarter.<br />Sell faster.</h3>
+
+
+        <p class="tagline">
+          Streamline inventory, track sales, and optimize operations —
+          all in one powerful platform.
+        </p>
+
+
+      </div>
+    </div>
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+
+      <div class="header">
+        <h2>Create Account</h2>
+      </div>
+
+      <form (ngSubmit)="onRegister()">
+
+        <div class="form-row">
+          <input type="text" placeholder="Name" [(ngModel)]="registerData.userName" name="userName" required />
+
+          <input type="text" placeholder="Phone" [(ngModel)]="registerData.phone" name="phone" required />
+        </div>
+
+        <input type="email" placeholder="Email" [(ngModel)]="registerData.email" name="email" required />
+
+        <div class="form-row">
+          <input type="password" placeholder="Password" [(ngModel)]="registerData.password" name="password" required />
+
+          <input type="password" placeholder="Confirm" [(ngModel)]="registerData.confirmPassword" name="confirmPassword"
+            required />
+        </div>
+
+        <button type="submit" class="btn">Register</button>
+
+        <p class="login-link">
+          Already have an account? <a routerLink="/">Login</a>
+        </p>
+
+      </form>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="header">
       <h2>Create Account</h2>
     </div>
 
@@ -45,4 +108,4 @@
     </form>
 
   </div>
-</div>
+</div> -->

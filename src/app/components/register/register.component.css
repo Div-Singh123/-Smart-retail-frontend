@@ -4,15 +4,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  z-index: 1;
 }
 
 /* ================= CARD ================= */
 .register-card {
   width: 100%;
-  max-width: 500px;
-  padding: 40px;
+  max-width: 900px;
+  height: 520px;
+
+  display: flex;
+  overflow: hidden;
 
   background: rgba(28, 28, 28, 0.85);
   backdrop-filter: blur(10px);
@@ -23,65 +24,150 @@
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
   animation: fadeIn 0.5s ease;
 }
-/* Custom scrollbar */
-/* .register-card::-webkit-scrollbar {
-  width: 6px;
+
+/* ================= LEFT PANEL ================= */
+.left-panel {
+    position: relative;
+  overflow: hidden;   
+  width: 35%;
+  height: 100%;
+  padding: 40px;
+
+  background: rgba(255, 215, 0, 0.08);
+  border-right: 1px solid rgba(255, 215, 0, 0.1);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+}
+.shapes {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.shapes span {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.35;
+mix-blend-mode: screen;
+  animation: floatBlob 5s linear infinite;
+  transform: translate3d(0, 0, 0);
+}
+.shapes span:nth-child(1) {
+  width: 180px;
+  height: 180px;
+  background: #ffe656;
+  top: 10%;
+  left: -50px;
 }
 
-.register-card::-webkit-scrollbar-track {
-  background: transparent;
+.shapes span:nth-child(2) {
+  width: 140px;
+  height: 140px;
+  background: #7d6b22;
+  bottom: 10%;
+  right: -40px;
+  animation-delay: 3s;
 }
 
-.register-card::-webkit-scrollbar-thumb {
-  background: rgba(255, 215, 0, 0.4);
-  border-radius: 10px;
-}
+.shapes span:nth-child(3) {
+  width: 100px;
+  height: 100px;
+  background: #f7dd4b;
+  top: 50%;
+  left: 40%;
+  animation-delay: 6s;
+} 
 
-.register-card::-webkit-scrollbar-thumb:hover {
-  background: #ffd700;
-} */
-/* ================= HEADER ================= */
-.header h2 {
-  text-align: center;
-  margin-bottom: 25px;
+.logo {
   color: #ffd700;
   font-weight: 600;
+  font-size: 22px;
+}
+
+.left-content h3 {
+  color: #fff;
+  font-size: 24px;
+  line-height: 1.4;
+}
+
+.switch-links {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  color: #aaa;
+}
+
+.switch-links .active {
+  color: #ffd700;
+  border-bottom: 1px solid #ffd700;
+}
+.tagline {
+  font-size: 13px;
+  color: #aaa;
+  line-height: 1.6;
+  max-width: 220px;
+}
+
+/* ================= RIGHT PANEL ================= */
+.right-panel {
+  width: 65%;
+  height: 100%;
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ================= HEADER ================= */
+.header h2 {
+  text-align: left;
+  margin-bottom: 20px;
+  color: #ffd700;
+  font-size: 28px;
 }
 
 /* ================= FORM ================= */
 .register-card form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
+}
+
+/* ================= ROW ================= */
+.form-row {
+  display: flex;
+  gap: 12px;
 }
 
 /* ================= INPUT ================= */
-.form-group label {
-  font-size: 14px;
-  color: #aaa;
-}
-
-.form-group input {
+.register-card input {
   width: 100%;
   padding: 12px;
+
   border-radius: 8px;
   border: 1px solid #333;
+
   background: #0f0f0f;
   color: #fff;
+
   outline: none;
   transition: 0.2s;
 }
 
-.form-group input:focus {
+.register-card input:focus {
   border-color: #ffd700;
   box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
 }
 
 /* ================= BUTTON ================= */
 .btn {
-  margin-top: 10px;
-  width: 100%;
-  padding: 14px;
+  margin-top: 20px;
+  width: 120px;
+  padding: 12px;
 
   border: none;
   border-radius: 10px;
@@ -89,9 +175,12 @@
   background: #ffd700;
   color: #000;
   font-weight: 600;
+  font-size: 18px;
 
   cursor: pointer;
   transition: 0.3s ease;
+
+  align-self: flex-start;
 }
 
 .btn:hover {
@@ -102,7 +191,6 @@
 
 /* ================= LINK ================= */
 .login-link {
-  text-align: center;
   font-size: 13px;
   color: #aaa;
 }
@@ -110,17 +198,20 @@
 .login-link a {
   color: #ffd700;
   text-decoration: none;
-  font-weight: 500;
 }
 
 .login-link a:hover {
   text-decoration: underline;
 }
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+
+
+/* hover for left panel  */
+.register-card:hover {
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(255, 215, 0, 0.08);
 }
+
 
 /* ================= ANIMATION ================= */
 @keyframes fadeIn {
@@ -131,5 +222,22 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@keyframes floatBlob {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(40px, -50px) scale(1.1);
+  }
+  50% {
+    transform: translate(-30px, -20px) scale(0.9);
+  }
+  75% {
+    transform: translate(20px, 40px) scale(1.05);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
   }
 }
