@@ -107,38 +107,16 @@ body {
 }
 
 /* When hovering wrapper → fade all */
-/* .card-wrapper:hover .hover-card {
+.card-wrapper:hover .hover-card {
   opacity: 0.3;
   filter: blur(2px);
-} */
+}
 
 /* EXCEPT hovered one */
-/* .card-wrapper .hover-card:hover {
+.card-wrapper .hover-card:hover {
   opacity: 1;
   filter: blur(0);
-} */
- .dashboard-card {
-  opacity: 1 !important;
-  filter: none !important;
 }
-
-.card-wrapper:hover .dashboard-card {
-  opacity: 0.6;
-}
-
-.card-wrapper .dashboard-card:hover {
-  opacity: 1;
-  transform: scale(1.05);
-  z-index: 5;
-}
-.dashboard-card h5,
-.dashboard-card p,
-.stat-card,
-.info-item span {
-  color: #eaeaea !important;
-}
-
-
 /* SECTION */
 .stack-section {
   position: relative;

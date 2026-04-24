@@ -1,92 +1,215 @@
-<div *ngIf="!isLoading; else loadingTemplate" class="dashboard-container">
+<div *ngIf="!isLoading; else loadingTemplate" class="d-flex">
 
-  <h2>Select Your Portal</h2>
+  <!-- SIDEBAR -->
+  <div class="sidebar p-3">
+    <h4 class="logo">⚡Smart Retail</h4>
 
-  <div class="cards">
-
-    <!-- STORE Manager -->
-    <div class="card clickable-card" (click)="goToStoreManagerPortal()">
-      <h3>Store Manager</h3>
-      <p>Manage store inventory</p>
-
-      <ng-container [ngSwitch]="getRoleStatus('STOREMANAGER')">
-        <button *ngSwitchCase="'NOT_ASSIGNED'" type="button">
-          Apply
-        </button>
-
-        <span *ngSwitchCase="'PENDING'" style="color: orange;">
-          Pending
-        </span>
-
-        <span *ngSwitchCase="'ACTIVE'" style="color: green;">
-          Active
-        </span>
-
-        <span *ngSwitchCase="'INACTIVE'" style="color: red;">
-          Inactive
-        </span>
-
-      </ng-container>
-    </div>
-
-    <!-- WAREHOUSEOPERATOR -->
-    <div class="card">
-      <h3>Warehouse Operator</h3>
-      <p>Handle warehouse operations</p>
-
-      <ng-container [ngSwitch]="getRoleStatus('WAREHOUSEOPERATOR')">
-
-        <button *ngSwitchCase="'NOT_ASSIGNED'" (click)="goToPortal('WAREHOUSEOPERATOR')">
-          Apply
-        </button>
-
-        <span *ngSwitchCase="'PENDING'" style="color: orange;">
-          Pending
-        </span>
-
-        <span *ngSwitchCase="'ACTIVE'" style="color: green;">
-          Active
-        </span>
-
-        <span *ngSwitchCase="'INACTIVE'" style="color: red;">
-          Inactive
-        </span>
-
-      </ng-container>
-    </div>
-
-    <!-- ADMIN -->
-    <div class="card">
-      <h3>Admin</h3>
-      <p>Approve requests & manage system</p>
-
-      <ng-container [ngSwitch]="getRoleStatus('ADMIN')">
-
-        <button *ngSwitchCase="'NOT_ASSIGNED'" (click)="goToPortal('ADMIN')">
-          Apply
-        </button>
-
-        <span *ngSwitchCase="'PENDING'" style="color: orange;">
-          Pending
-        </span>
-
-        <span *ngSwitchCase="'ACTIVE'" style="color: green;">
-          Active
-        </span>
-
-        <span *ngSwitchCase="'INACTIVE'" style="color: red;">
-          Inactive
-        </span>
-
-      </ng-container>
-    </div>
-
+    <ul class="nav flex-column mt-4">
+      <li class="nav-item active">Dashboard</li>
+      <li class="nav-item">Admin</li>
+      <li class="nav-item">Store Manager</li>
+      <li class="nav-item">Warehouse</li>
+    </ul>
   </div>
 
-</div>
+  <!-- MAIN CONTENT -->
+  <div class="main-content flex-grow-1">
 
+    <!-- TOPBAR -->
+    <div class="topbar d-flex justify-content-between align-items-center p-3">
+      <input type="text" placeholder="Search..." class="search-box">
+      <button class="gold-btn">Logout</button>
+    </div>
+     <!--  stat Cards -->
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="p-4 mb-4 stat-card">
+                        <h6>Current Users</h6>
+                        <h2 class="stat-value">15,34,456</h2>
+                        <p class="small">No active users</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="p-4 mb-4 stat-card">
+                        <h6>Total operable stores</h6>
+                        <h2 class="stat-value">0</h2>
+                        <p class="small">No active stores</p>
+
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="p-4 mb-4 stat-card">
+                        <h6>Active Warehosuses</h6>
+                        <h2 class="stat-value">20,000</h2>
+                        <p class="small">total warehouses</p>
+                    </div>
+                </div>
+            </div>
+
+    <!-- DASHBOARD CARDS -->
+    <div class="container-fluid mt-3">
+      <div class="row g-4 card-wrapper">
+
+        <!-- STORE MANAGER -->
+        <div class="col-lg-4">
+          <div class="card-custom p-4 dashboard-card">
+
+            <div class="d-flex justify-content-between align-items-center">
+              <h5>Store Manager</h5>
+
+              <span class="status"
+                [ngClass]="{
+                  'active': getRoleStatus('STOREMANAGER') === 'ACTIVE',
+                  'inactive': getRoleStatus('STOREMANAGER') !== 'ACTIVE'
+                }">
+                {{ getRoleStatus('STOREMANAGER') }}
+              </span>
+            </div>
+
+            <p class="mt-2">Manage store inventory</p>
+
+            <div class="card-info mt-3">
+              <div class="info-item">
+                <span class="icon">📦</span>
+                <span>Inventory Tracking</span>
+              </div>
+              <div class="info-item">
+                <span class="icon">📊</span>
+                <span>Sales Monitoring</span>
+              </div>
+              <div class="info-item">
+                <span class="icon">👥</span>
+                <span>Staff Management</span>
+              </div>
+            </div>
+
+            <ng-container [ngSwitch]="getRoleStatus('STOREMANAGER')">
+              <button *ngSwitchCase="'NOT_ASSIGNED'" class="action-btn register">
+                Apply
+              </button>
+
+              <button *ngSwitchCase="'ACTIVE'" class="action-btn"
+                (click)="goToStoreManagerPortal()">
+                Login
+              </button>
+
+              <span *ngSwitchCase="'PENDING'" class="status inactive">Pending</span>
+              <span *ngSwitchCase="'INACTIVE'" class="status inactive">Inactive</span>
+            </ng-container>
+
+          </div>
+        </div>
+
+        <!-- WAREHOUSE -->
+        <div class="col-lg-4">
+          <div class="card-custom p-4 dashboard-card">
+
+            <div class="d-flex justify-content-between align-items-center">
+              <h5>Warehouse Operator</h5>
+
+              <span class="status"
+                [ngClass]="{
+                  'active': getRoleStatus('WAREHOUSEOPERATOR') === 'ACTIVE',
+                  'inactive': getRoleStatus('WAREHOUSEOPERATOR') !== 'ACTIVE'
+                }">
+                {{ getRoleStatus('WAREHOUSEOPERATOR') }}
+              </span>
+            </div>
+
+            <p class="mt-2">Handle warehouse operations</p>
+
+            <div class="card-info mt-3">
+              <div class="info-item">
+                <span class="icon">📦</span>
+                <span>Order Processing</span>
+              </div>
+              <div class="info-item">
+                <span class="icon">🚚</span>
+                <span>Dispatch Tracking</span>
+              </div>
+              <div class="info-item">
+                <span class="icon">📋</span>
+                <span>Inventory Logs</span>
+              </div>
+            </div>
+
+            <ng-container [ngSwitch]="getRoleStatus('WAREHOUSEOPERATOR')">
+              <button *ngSwitchCase="'NOT_ASSIGNED'" class="action-btn register"
+                (click)="goToPortal('WAREHOUSEOPERATOR')">
+                Apply
+              </button>
+
+              <button *ngSwitchCase="'ACTIVE'" class="action-btn"
+                (click)="goToPortal('WAREHOUSEOPERATOR')">
+                Login
+              </button>
+
+              <span *ngSwitchCase="'PENDING'" class="status inactive">Pending</span>
+              <span *ngSwitchCase="'INACTIVE'" class="status inactive">Inactive</span>
+            </ng-container>
+
+          </div>
+        </div>
+
+        <!-- ADMIN -->
+        <div class="col-lg-4">
+          <div class="card-custom p-4 dashboard-card">
+
+            <div class="d-flex justify-content-between align-items-center">
+              <h5>Admin</h5>
+
+              <span class="status"
+                [ngClass]="{
+                  'active': getRoleStatus('ADMIN') === 'ACTIVE',
+                  'inactive': getRoleStatus('ADMIN') !== 'ACTIVE'
+                }">
+                {{ getRoleStatus('ADMIN') }}
+              </span>
+            </div>
+
+            <p class="mt-2">Approve requests & manage system</p>
+
+            <div class="card-info mt-3">
+              <div class="info-item">
+                <span class="icon">🔐</span>
+                <span>Access Control</span>
+              </div>
+              <div class="info-item">
+                <span class="icon">📊</span>
+                <span>System Monitoring</span>
+              </div>
+              <div class="info-item">
+                <span class="icon">⚙️</span>
+                <span>Configuration</span>
+              </div>
+            </div>
+
+            <ng-container [ngSwitch]="getRoleStatus('ADMIN')">
+              <button *ngSwitchCase="'NOT_ASSIGNED'" class="action-btn register"
+                (click)="goToPortal('ADMIN')">
+                Apply
+              </button>
+
+              <button *ngSwitchCase="'ACTIVE'" class="action-btn"
+                (click)="goToPortal('ADMIN')">
+                Login
+              </button>
+
+              <span *ngSwitchCase="'PENDING'" class="status inactive">Pending</span>
+              <span *ngSwitchCase="'INACTIVE'" class="status inactive">Inactive</span>
+            </ng-container>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div> <!-- main-content -->
+</div> <!-- d-flex -->
+
+<!-- LOADING TEMPLATE -->
 <ng-template #loadingTemplate>
   <p>Loading dashboard...</p>
 </ng-template>
-
-<p>isLoading: {{ isLoading }}</p>
