@@ -9,13 +9,13 @@ import { environment } from 'src/environments/environment.development';
 @Injectable({
   providedIn: 'root'
 })
-export class GetStoreService {
+export class UpdateStoreService {
   private url = environment.BASE_URL + '/storemanager/store'; 
   constructor(private http: HttpClient, private jwtHeader : JwtHeaderService) { }
 
-  getStore(): Observable<APIResponse<StoreDTO>> {
+  updateStore(storeDTO :StoreDTO): Observable<APIResponse<any>> {
     let headers: HttpHeaders = new HttpHeaders();
     headers = this.jwtHeader.getAuthHeaders();
-    return this.http.get<APIResponse<StoreDTO>>(`${this.url}`, { headers });
+    return this.http.put<APIResponse<StoreDTO>>(`${this.url}`, storeDTO, { headers });
   }
 }
