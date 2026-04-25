@@ -10,3 +10,64 @@ html, body, app-root {
 app-root {
   display: block;
 }
+
+/* SWEET ALERT DARK GOLD THEME */
+
+.dg-popup {
+  border-radius: 15px !important;
+  border: 1px solid rgba(255, 215, 0, 0.2) !important;
+
+  box-shadow:
+    0 20px 50px rgba(255, 215, 0, 0.2),
+    inset 0 0 10px rgba(255, 215, 0, 0.05);
+
+  backdrop-filter: blur(10px);
+}
+
+/* Title */
+.dg-title {
+  color: #ffd700 !important;
+  font-weight: 600;
+}
+
+/* Text */
+.dg-text {
+  color: #ccc !important;
+  font-size: 14px;
+}
+
+/* Confirm button (gold gradient like your .gold-btn) */
+.dg-confirm-btn {
+  background: linear-gradient(45deg, #d4af37, #ffd700);
+  color: black;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.dg-confirm-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Cancel button (outline gold style like your .action-btn.register) */
+.dg-cancel-btn {
+  background: transparent;
+  border: 1px solid #ffd700;
+  color: #ffd700;
+  padding: 8px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.dg-cancel-btn:hover {
+  background: rgba(255, 215, 0, 0.1);
+}
+
+/* Optional: icon glow */
+.swal2-icon {
+  border-color: #ffd700 !important;
+  color: #ffd700 !important;
+}

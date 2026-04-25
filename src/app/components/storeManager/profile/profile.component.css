@@ -1,0 +1,402 @@
+body {
+  background: #0d0d0d;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #111;
+  min-height: 100vh;
+  border-right: 1px solid #222;
+}
+
+.logo {
+  color: #ffd700;
+}
+
+.nav-item {
+  padding: 10px;
+  color: #aaa;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: rgba(255, 215, 0, 0.1);
+  color: #ffd700;
+}
+
+/* Main */
+.main-content {
+  padding: 10px;
+}
+
+/* Topbar */
+.topbar {
+  background: #111;
+  border-radius: 10px;
+}
+
+.search-box {
+  background: #1a1a1a;
+  border: none;
+  padding: 8px 12px;
+  color: white;
+  border-radius: 8px;
+  width: 200px;
+}
+
+/* Button */
+.gold-btn {
+  background: linear-gradient(45deg, #d4af37, #ffd700);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  color: black;
+  font-weight: 600;
+}
+
+/* Cards */
+.card-custom {
+  background: #1a1a1a;
+  border-radius: 15px;
+  border: 1px solid #222;
+  transition: 0.3s;
+}
+
+.card-custom h4.fw-bold {
+  color: #fff;
+}
+
+.card-custom .text-muted {
+  color: #e0e0e0 !important;
+}
+
+.card-custom:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
+}
+
+/* Big Card */
+.big-card {
+  height: 250px;
+}
+
+/* Fake Chart */
+.fake-chart {
+  height: 150px;
+  background: linear-gradient(90deg, transparent, #ffd700, transparent);
+  opacity: 0.2;
+  border-radius: 10px;
+}
+#i1{
+    color: #fff;
+}
+/* Wrapper controls interaction */
+.card-wrapper {
+  position: relative;
+}
+
+/* Base card */
+.hover-card {
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 1;
+}
+
+/* Hovered card → POP OUT */
+.hover-card:hover {
+  transform: scale(1.15);
+  z-index: 4;
+  box-shadow: 0 20px 50px rgba(255, 215, 0, 0.3);
+}
+
+/* When hovering wrapper → fade all */
+/* .card-wrapper:hover .hover-card {
+  opacity: 0.3;
+  filter: blur(2px);
+} */
+
+/* EXCEPT hovered one */
+/* .card-wrapper .hover-card:hover {
+  opacity: 1;
+  filter: blur(0);
+} */
+ .dashboard-card {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+.card-wrapper:hover .dashboard-card {
+  opacity: 0.6;
+}
+
+.card-wrapper .dashboard-card:hover {
+  opacity: 1;
+  transform: scale(1.05);
+  z-index: 5;
+}
+.dashboard-card h5,
+.dashboard-card p,
+.stat-card,
+.info-item span {
+  color: #eaeaea !important;
+}
+
+
+/* SECTION */
+.stack-section {
+  position: relative;
+  height: 300px;
+  margin-top: 50px;
+}
+
+/* DEFAULT (GRID LOOK) */
+.stack-card {
+  background: #1a1a1a;
+  border: 1px solid #222;
+  border-radius: 15px;
+  padding: 30px;
+  color: white;
+  position: absolute;
+  width: 30%;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+/* Initial positions (grid-like) */
+.stack-card:nth-child(1) {
+  left: 5%;
+  top: 0;
+}
+
+.stack-card:nth-child(2) {
+  left: 35%;
+  top: 0;
+}
+
+.stack-card:nth-child(3) {
+  left: 65%;
+  top: 0;
+}
+
+/* 🔥 ON HOVER → STACK */
+.stack-section:hover .stack-card {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* vertical stacking */
+.stack-section:hover .stack-card:nth-child(1) {
+  top: 0;
+}
+
+.stack-section:hover .stack-card:nth-child(2) {
+  top: 70px;
+}
+
+.stack-section:hover .stack-card:nth-child(3) {
+  top: 140px;
+}
+
+/* fade all */
+.stack-section:hover .stack-card {
+  opacity: 0.4;
+  filter: blur(2px);
+}
+
+/* active card */
+.stack-card:hover {
+  opacity: 1 !important;
+  filter: blur(0) !important;
+  transform: translateX(-50%) scale(1.1);
+  z-index: 10;
+  box-shadow: 0 20px 50px rgba(255, 215, 0, 0.3);
+}
+
+
+
+/* button for the card components */
+/* STATUS BADGES */
+.status {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.status.active {
+  background: rgba(0, 255, 150, 0.1);
+  color: #00ff99;
+}
+
+.status.inactive {
+  background: rgba(255, 0, 0, 0.1);
+  color: #ff4d4d;
+}
+
+/* BUTTON */
+.action-btn {
+   
+  width: fit-content;   /* keep this */
+  padding: 8px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  background: linear-gradient(45deg, #d4af37, #ffd700);
+  color: black;
+  transition: 0.3s;
+  align-self: flex-start;
+}
+
+.action-btn:hover {
+  transform: scale(1.05);
+}
+
+/* REGISTER BUTTON (different look) */
+.action-btn.register {
+  background: transparent;
+  border: 1px solid #ffd700;
+  color: #ffd700;
+}
+
+/* CARD EXTRA EFFECT */
+.dashboard-card {
+  transition: 0.3s;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.dashboard-card:hover {
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+}
+
+/* STAT CARDS */
+.stat-card {
+  background: rgba(255, 255, 255, 0.05); /* transparency */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  min-height: 140px;   
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 215, 0, 0.15);
+
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 0 10px rgba(255, 215, 0, 0.05);
+
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card:hover {
+    transform: translateY(-6px);
+  box-shadow: 
+    0 10px 40px rgba(255, 215, 0, 0.2),
+    inset 0 0 15px rgba(255, 215, 0, 0.1);
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: bold;
+  color: #ffd700;
+}
+.stat-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -1%;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.1),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.stat-card:hover::before {
+  left: 50%;
+}
+
+
+/* for inside card */
+
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ccc;
+  font-size: 14px;
+}
+
+/* Icon style */
+.icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 215, 0, 0.1);
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.icon {
+  border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+/* FORM INPUTS */
+.form-control-custom {
+  background: #1a1a1a;
+  border: 1px solid #222;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  transition: 0.3s;
+}
+
+.form-control-custom::placeholder {
+  color: #777;
+}
+
+.form-control-custom:focus {
+  background: #1a1a1a;
+  border-color: #ffd700;
+  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+  color: #fff;
+}
+
+/* LABEL */
+.form-label-custom {
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 6px;
+}
+
+/* SELECT FIX */
+select.form-control-custom {
+  appearance: none;
+}

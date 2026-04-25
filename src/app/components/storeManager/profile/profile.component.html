@@ -1,0 +1,114 @@
+<div *ngIf="!isLoading; else loadingTemplate" class="d-flex">
+
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content flex-grow-1">
+
+    <!--  stat Cards -->
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="p-4 mb-4 stat-card">
+          <h6>Stock Status</h6>
+          <h2 class="stat-value">15,34,456</h2>
+          <p class="small">No active users</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="p-4 mb-4 stat-card">
+          <h6>Pending Reorders</h6>
+          <h2 class="stat-value">0</h2>
+          <p class="small">No active stores</p>
+
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="p-4 mb-4 stat-card">
+          <h6>Expiring Soon</h6>
+          <h2 class="stat-value">20,000</h2>
+          <p class="small">total warehouses</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="p-4 mb-4 stat-card">
+          <h6>Sales Trend</h6>
+          <h2 class="stat-value">20,000</h2>
+          <p class="small">total warehouses</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DASHBOARD CARDS -->
+    <div class="row g-4">
+      <div class="card card-custom p-4">
+
+        <!-- Title -->
+        <div class="mb-4">
+          <h4 class="fw-bold">Store Profile</h4>
+          <p class="text-muted" style="font-size: 14px;">
+            Update details below
+          </p>
+        </div>
+
+        <!-- Form -->
+        <form [formGroup]="dashboardForm" (ngSubmit)="onUpdateProfile()">
+          <div formGroupName="store">
+            <div class="row g-3">
+
+              <!-- Store Name -->
+              <div class="col-md-6">
+                <label class="form-label form-label-custom">Store Name</label>
+                <input type="text" class="form-control form-control-custom" formControlName="storeName" placeholder="Enter store name">
+              </div>
+
+              <!-- Location -->
+              <div class="col-md-6">
+                <label class="form-label form-label-custom">Location</label>
+                <input type="text" class="form-control form-control-custom" formControlName="location" placeholder="Enter location">
+              </div>
+
+              <!-- Type -->
+              <div class="col-md-6">
+                <label class="form-label form-label-custom">Type</label>
+                <input type="text" class="form-control form-control-custom" formControlName="type" placeholder="Enter store type">
+              </div>
+
+              <!-- Size -->
+              <div class="col-md-6">
+                <label class="form-label form-label-custom">Size (sq ft)</label>
+                <input type="number" class="form-control form-control-custom" formControlName="size" placeholder="Enter size">
+              </div>
+
+              <!-- Aisles -->
+              <div class="col-md-6">
+                <label class="form-label form-label-custom">Number of Aisles</label>
+                <input type="number" class="form-control form-control-custom" formControlName="numberOfAisles" placeholder="Enter aisle count">
+              </div>
+
+              <!-- Operating Hours -->
+              <div class="col-md-6">
+                <label class="form-label form-label-custom">Operating Hours</label>
+                <input type="text" class="form-control form-control-custom" formControlName="operatingHours" placeholder="e.g. 08:00 - 22:00">
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="d-flex justify-content-end gap-3 mt-4">
+            <button type="button" class="action-btn register" (click)="dashboardForm.reset({ store: storeData })">Cancel</button>
+            <button type="submit" class="gold-btn">Save</button>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+</div> <!-- d-flex -->
+
+<!-- LOADING TEMPLATE -->
+<ng-template #loadingTemplate>
+  <p>Loading dashboard...</p>
+</ng-template>

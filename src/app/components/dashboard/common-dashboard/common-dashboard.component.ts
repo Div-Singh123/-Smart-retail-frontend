@@ -40,7 +40,7 @@ export class CommonDashboardComponent {
   goToStoreManagerPortal(): void {
     const storeManagerStatus = this.getRoleStatus('STOREMANAGER');
     if (storeManagerStatus === 'ACTIVE') {
-      this.router.navigate(['/store/dashboard']);
+      this.router.navigate(['/store']);
       return;
     }
 

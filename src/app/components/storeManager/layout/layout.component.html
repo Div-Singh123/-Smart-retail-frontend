@@ -1,0 +1,33 @@
+<div class="d-flex">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar p-3">
+    <h4 class="logo">⚡Smart Retail</h4>
+
+    <ul class="nav flex-column mt-4">
+      <li class="nav-item" routerLink="/store/profile" routerLinkActive="active">Store Profile</li>
+      <li class="nav-item" routerLink="/store/layout" routerLinkActive="active">Store Layout and Sensors</li>
+      <li class="nav-item" routerLink="/store/stock" routerLinkActive="active">Real-time Stock Levels</li>
+      <li class="nav-item" routerLink="/store/sales" routerLinkActive="active">Sales Trend Predictions</li>
+      <li class="nav-item" routerLink="/store/reorder" routerLinkActive="active">Auto-Reorder Management</li>
+      <li class="nav-item" routerLink="/store/expiry" routerLinkActive="active">Expiry Date Tracker</li>
+      <li class="nav-item" routerLink="/store/analytics" routerLinkActive="active">Inventory Analytics</li>
+      <li class="nav-item" routerLink="/store/notifications" routerLinkActive="active">Notification Centre</li>
+      <li class="nav-item" routerLink="/store/issues" routerLinkActive="active">Issue Reporting</li>
+    </ul>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content flex-grow-1">
+
+    <!-- TOPBAR -->
+    <div class="topbar d-flex justify-content-between align-items-center p-3">
+      <input type="text" placeholder="Search..." class="search-box">
+      <button class="gold-btn">Logout</button>
+    </div>
+
+    <!-- THIS IS WHERE PAGE CONTENT GOES -->
+    <router-outlet></router-outlet>
+
+  </div>
+</div>

@@ -9,7 +9,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonDashboardComponent } from './components/dashboard/common-dashboard/common-dashboard.component';
 import { ApplyStoreManagerComponent } from './components/storeManager/apply-store-manager/apply-store-manager.component';
-import { DashboardComponent } from './components/storeManager/dashboard/dashboard.component';
+import { ProfileComponent } from './components/storeManager/profile/profile.component';
+import { RealTimeStockComponent } from './components/storemanager/real-time-stock/real-time-stock.component';
+import { LayoutComponent } from './components/storeManager/layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { DashboardComponent } from './components/storeManager/dashboard/dashboar
     RegisterComponent,
     CommonDashboardComponent,
     ApplyStoreManagerComponent,
-    DashboardComponent
+    ProfileComponent,
+    RealTimeStockComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,45 @@
+<div *ngIf="!isLoading; else loadingTemplate" class="d-flex">
+
+    <!--  stat Cards -->
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="p-4 mb-4 stat-card">
+          <h6>Stock Status</h6>
+          <h2 class="stat-value">15,34,456</h2>
+          <p class="small">No active users</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="p-4 mb-4 stat-card">
+          <h6>Pending Reorders</h6>
+          <h2 class="stat-value">0</h2>
+          <p class="small">No active stores</p>
+
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="p-4 mb-4 stat-card">
+          <h6>Expiring Soon</h6>
+          <h2 class="stat-value">20,000</h2>
+          <p class="small">total warehouses</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="p-4 mb-4 stat-card">
+          <h6>Sales Trend</h6>
+          <h2 class="stat-value">20,000</h2>
+          <p class="small">total warehouses</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DASHBOARD CARDS -->
+    
+
+</div> <!-- d-flex -->
+
+<!-- LOADING TEMPLATE -->
+<ng-template #loadingTemplate>
+  <p>Loading dashboard...</p>
+</ng-template>
