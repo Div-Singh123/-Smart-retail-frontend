@@ -13,17 +13,6 @@ import { UpdateStoreService } from 'src/app/services/store/update-store.service'
 export class ProfileComponent implements OnInit {
   dashboardForm: FormGroup;
   isLoading: boolean = false;
-  readonly quickActions: string[] = [
-    'Store Profile',
-    'Store Layout & Sensors',
-    'Real-Time Stock Levels',
-    'Sales Trend Predictions',
-    'Auto-Reorder Management',
-    'Expiry Date Tracker',
-    'Inventory Analytics',
-    'Notification Centre',
-    'Issue Reporting'
-  ];
 
   storeData: StoreDTO = {
     storeId: 101,
@@ -117,5 +106,4 @@ export class ProfileComponent implements OnInit {
       }
     });
   }
-
 }

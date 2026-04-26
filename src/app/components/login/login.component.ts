@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { AlertService } from 'src/app/services/alert/alert.service';
 import { LoginService } from 'src/app/services/auth/login.service';
 
 @Component({
@@ -16,7 +16,8 @@ export class LoginComponent {
   };
 
   constructor(private loginService: LoginService,
-    private router:Router
+    private router:Router,
+    private alertService:AlertService
   ) {}
 
   onLogin() {
@@ -25,14 +26,10 @@ export class LoginComponent {
         console.log('Login success', res);
         
         // store token (later JWT)
-        localStorage.setItem('token', res);
+        localStorage.setItem('token', res.data);
 
         // redirect (we’ll add later)
         this.router.navigate(['/dashboard']);
-      },
-      error: (err) => {
-        console.error('Login failed', err);
-        alert('Invalid credentials');
       }
     });
   }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GetStockService } from 'src/app/services/store/get-stock.service';
 
 @Component({
   selector: 'app-real-time-stock',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class RealTimeStockComponent {
   isLoading: boolean = false;
+  constructor(private getStockService: GetStockService
+  ) {}
+  
+  // getStock()
+
+
 }
